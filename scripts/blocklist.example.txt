@@ -1,0 +1,32 @@
+# blocklist.example.txt — example semantic block list for check-release.sh
+# and prepare-repo.sh.
+#
+# Copy this file to blocklist.local.txt and replace the examples with YOUR
+# private terms:
+#
+#     cp scripts/blocklist.example.txt scripts/blocklist.local.txt
+#
+# blocklist.local.txt is gitignored and must NEVER be committed or shipped —
+# a block list is a map of exactly what you don't want public. Keeping it
+# out of the repo is the point.
+#
+# Format, one rule per line:
+#
+#     ERE_PATTERN|Category label
+#
+# Patterns are extended regular expressions (grep -E). The category is free
+# text, printed when a pattern hits. Blank lines and # comments are ignored.
+
+# Your legal name and personal email
+Jane Q\. Samplename|Personal identity
+jane\.samplename@example\.com|Personal identity
+
+# Private project / venture / client names
+Project Sunfish|Private venture
+Samplecorp Consulting|Client name
+
+# People who appear in your sources but never consented to shipping
+Sam Samplefriend|Third-party name
+
+# Local machine paths and infrastructure
+/Volumes/JanesDrive|Personal path

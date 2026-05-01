@@ -1,0 +1,99 @@
+# research-control.yml
+# Configuration for /autoresearch on a single topic.
+# Place at: 08_RESEARCH/_Active/{topic-slug}/control.yml (or alongside a flat-file topic).
+
+# --- Identity ---
+topic: "Short topic name (e.g., 'AI agent infrastructure 2026')"
+slug: topic-slug                 # kebab-case, matches folder/file name
+question: >
+  The core research question in one sentence.
+  "What is the state of X, who are the players, how is it evolving, and what matters for me?"
+
+# --- Depth ---
+# shallow  -> 1 pass, ~5 sources, single summary page
+# medium   -> 2-3 passes, ~15 sources, ~3-5 sections
+# deep     -> saturation loop, ~50+ sources, full section tree, contradictions surfaced
+depth: medium
+
+# --- Source allowlist ---
+# Categories the research loop may pull from. Omit categories to exclude them.
+source_types:
+  - web_articles         # general web search, news, blog posts
+  - academic             # arxiv, scholar, journals
+  - pdf                  # linked PDFs in any result
+  - books                # book excerpts, goodreads, summaries
+  - podcast_transcripts  # transcript-backed podcast results
+  - long_form            # essays, Substack, Medium longreads
+  # - reddit
+  # - twitter
+  # - github
+  # - youtube_transcripts
+
+# Specific domains to always skip
+source_denylist:
+  - pinterest.com
+  - quora.com
+
+# Preferred domains (weighted higher when ranking sources)
+source_allowlist_preferred:
+  - arxiv.org
+  # add topic-specific trusted sources
+
+# --- Stop conditions ---
+# The loop halts when ANY of these trip.
+stop_conditions:
+  max_sources: 30        # hard cap on sources pulled
+  max_passes: 3          # max outer iteration count
+  saturation: 5          # stop if N consecutive sources add no new concepts
+  max_runtime_minutes: 30
+
+# --- Output structure ---
+# Sections the research page should fill. Autoresearch creates these as sections/*.md
+# if the topic grows past the single-file threshold.
+output_sections:
+  - overview              # what is this, 2-3 paragraphs
+  - key_players           # who / what orgs are material
+  - timeline              # how did we get here
+  - state_of_the_art      # what's the current frontier
+  - contrarian_views      # who disagrees with the consensus and why
+  - open_questions        # what remains unresolved
+  - personal_implications # why this matters to you (derived from canon links)
+
+# --- Cross-reference targets ---
+# Canon entities this research should link to when mentioned. Autoresearch will
+# auto-link these on first mention in any section.
+linked_canon:
+  people: []              # e.g., ["Your Name"]
+  projects: []            # e.g., ["Your Project"]
+  places: []
+  themes: []              # e.g., ["a theme from 04_CANON/Practice/Themes/"]
+
+# --- Cadence ---
+# one_shot -> run once, then freeze unless manually re-run
+# monthly  -> /autoresearch re-runs and appends new findings
+# weekly   -> aggressive update cadence (use for fast-moving topics)
+cadence: one_shot
+
+# --- Trust labeling (populated by /autoresearch) ---
+# Page-level confidence, derived from source mix and convergence.
+# Research does NOT inherit the L1-L6 biographical hierarchy - that is for
+# personal claims only. Research uses its own scheme:
+#
+# Per-source citation tags (applied inline in the sources list):
+#   primary        - subject speaks directly (paper, filing, founder interview)
+#   institutional  - established journalism, academic work, government data
+#   secondary      - analyst / commentator synthesis
+#   opinion        - named thinker's argued position
+#   aggregator     - lists, link dumps, summaries of other sources
+#
+# Page-level confidence:
+#   high   - multiple primary/institutional sources converge
+#   medium - mixed sources, partial convergence
+#   low    - mostly opinion/aggregator, or contradictions unresolved
+confidence: low           # auto-updated each pass; initial state is low
+
+# --- Run metadata (auto-managed by /autoresearch) ---
+first_run: null           # ISO timestamp, set on first run
+last_run: null            # ISO timestamp, updated every run
+runs_completed: 0
+status: pending           # pending | active | stable | archived

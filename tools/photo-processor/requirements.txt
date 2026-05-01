@@ -1,0 +1,6 @@
+Pillow>=10.0
+pillow-heif>=0.13
+exifread>=3.0
+face-recognition>=1.3
+pytesseract>=0.3
+nudenet>=3.0

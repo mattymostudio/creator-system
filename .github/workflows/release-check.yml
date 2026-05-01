@@ -1,0 +1,24 @@
+name: Release Check
+
+# Runs scripts/check-release.sh on every PR and on every push to main.
+# Refuses any PR that introduces blocked terms (see scripts/check-release.sh
+# for the full block list) anywhere in shipping files. Also verifies content
+# folders ship empty and surfaces dangling wikilinks.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  check-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run check-release.sh
+        run: |
+          chmod +x scripts/check-release.sh
+          bash scripts/check-release.sh

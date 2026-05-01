@@ -1,0 +1,30 @@
+# Photo data (personal) — ignore contents but keep scaffolding README
+NewIphoneDump/
+New Dump/
+new/*
+!new/README.md
+!new/.gitkeep
+Organized/
+ihpone dump*/
+
+# Vault-integration scripts (personal workflow)
+**/backfill_vault.py
+**/obsidian_builder.py
+**/folder_watcher.py
+
+# Claude Code config
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+*.swo
+*~

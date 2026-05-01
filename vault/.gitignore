@@ -1,0 +1,42 @@
+# Obsidian workspace files
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspaces.json
+
+# Obsidian cache
+.obsidian/cache
+.trash/
+
+# OS files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Large binary files — don't version PDFs or images
+**/*.pdf
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.mp4
+**/*.mov
+**/*.zip
+
+# Sensitive personal files — customize these paths
+# 04_CANON/Personal/Partners.md
+# 04_CANON/Personal/Financial Records.md
+
+# Temp / scratch — ignore your content, but keep the empty-folder marker so the
+# scaffolding ships to fresh users
+01_INBOX/Scratch/*
+!01_INBOX/Scratch/.gitkeep
+01_INBOX/Voice Notes/*
+!01_INBOX/Voice Notes/.gitkeep
+
+# LibreOffice/OpenOffice lock files
+.~lock.*
+
+# Python
+__pycache__/
+*.pyc
+.env

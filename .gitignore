@@ -1,0 +1,60 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Private / internal — never ship
+RECIPIENTS.md
+email-to-*.md
+GITHUB_DEPLOYMENT_PLAN.md
+ONBOARDING_REDESIGN.md
+COHORT_*_HANDOUT.md
+COHORT_*_HANDOUT.pdf
+cohort-bonus/
+_archive/
+_build/
+_build_tools/
+
+# Internal recap notes for maintainers
+**/.claude/RECAP.md
+**/.claude/settings.local.json
+
+# Release artifacts (use GitHub Releases instead of committing)
+*.zip
+*.tar.gz
+
+# Marketing site (deployed separately)
+site/
+
+# Internal release tooling — kept private to maintainers
+# (uncomment if scripts/ should not ship; current default keeps check-release.sh public)
+# /scripts/
+
+# Obsidian local workspace (users shouldn't commit their own state)
+.obsidian/workspace*
+.obsidian/plugins/
+.obsidian/themes/
+.obsidian/hotkeys.json
+.obsidian/app.json
+.obsidian/appearance.json
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets — defensive
+*.env
+.env.*
+*.key
+*.pem
