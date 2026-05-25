@@ -1,14 +1,14 @@
 ---
 description: Generate (or refresh) a personal writing-voice skill from a creator's own sources. Mines first-person writing in 02_SOURCES, detects surfaces, measures a quantitative fingerprint, extracts vocabulary + sentence patterns + verbatim calibration samples, and emits a {slug}-voice/SKILL.md from the voice template, symlinked for global use. Use when a creator wants a "write in my voice" skill, or to refresh one after new sources land.
 allowed-tools: Bash, Read, Glob, Grep, Write, Edit, AskUserQuestion
-origin: tmfa-creator-system/1.0
+origin: matty-mo-studio-creator-system/1.0
 ---
 
 # Voice
 
 You are building a **personal writing-voice skill** for this vault's creator, entirely from their own primary sources. The output is a `{{slug}}-voice/SKILL.md` that any future Claude session can invoke to draft text that sounds like the creator wrote it.
 
-This command is creator-agnostic. It works for *any* TMFA vault owner by reading *their* `02_SOURCES/`. If a completed voice skill already exists under `vault/10_META/skills/`, read it once to see what "done" looks like — but never copy another creator's content; each voice is generated from its owner's own sources.
+This command is creator-agnostic. It works for *any* Creator System vault owner by reading *their* `02_SOURCES/`. If a completed voice skill already exists under `vault/10_META/skills/`, read it once to see what "done" looks like — but never copy another creator's content; each voice is generated from its owner's own sources.
 
 **Working directory:** the vault root (the directory containing `00_HOME` through `10_META`).
 

@@ -97,6 +97,7 @@ Once `[Your Name]` placeholders are gone, treat this as the user's working perso
 | `/recap` | Close a session — write a dated entry to `00_HOME/Log.md` |
 | `/autoresearch` | Autonomous research loop on an external topic |
 | `/granola` | Synthesize Granola meeting pulls (pairs with the granola-ingest tool) |
+| `/voice` | Build (or refresh) a personal writing-voice skill from the creator's own first-person sources |
 
 ### Critical rules (full version in `vault/10_META/AGENTS.md`)
 
