@@ -1,0 +1,19 @@
+name: Codex Readiness
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  codex-readiness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Codex readiness check
+        run: |
+          chmod +x scripts/check-codex-readiness.sh
+          bash scripts/check-codex-readiness.sh

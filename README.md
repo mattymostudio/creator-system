@@ -1,8 +1,8 @@
 # Creator System
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Built by Matty Mo Studio](https://img.shields.io/badge/built%20by-Matty%20Mo%20Studio-ff3d8a.svg)](https://creator-system.vercel.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Built by Matty Mo Studio](https://img.shields.io/badge/built%20by-Matty%20Mo%20Studio-ff3d8a.svg)](https://themostfamousartist.com)
 
-> **Personal Intelligence System for creative professionals.** Open-source, MIT-licensed, runs locally on Obsidian + Claude Code. Vault scaffolding + 14 AI skills + 6 ingestion tools that turn your scattered archive into a queryable second brain.
+> **Personal Intelligence System for creative professionals.** Open-source, MIT-licensed, runs locally on Obsidian + Claude Code or Codex. Vault scaffolding + 14 AI skills + 6 ingestion tools that turn your scattered archive into a queryable second brain.
 
 Not a notes app. A layered system that archives source material, builds structured knowledge, tracks projects, and generates outputs — with AI-powered skills that do the heavy synthesis.
 
@@ -21,14 +21,15 @@ cd creator-system
 
 Or **Code → Download ZIP** above, then unzip wherever you keep projects (`~/Documents/`, `~/code/`, anywhere). The folder you end up with **is your working vault** — no install step, no second copy.
 
-### 2. Install Obsidian + Claude Code
+### 2. Install Obsidian + an AI coding agent
 
 - [Obsidian](https://obsidian.md) — free, the editor for your vault
-- [Claude Code](https://claude.ai/claude-code) — the AI layer; free tier covers the first session, Claude Max (~$100/mo) recommended once you're loaded up
+- Claude Code — reads `CLAUDE.md` and the command specs in `vault/.claude/commands/`
+- Codex — reads `AGENTS.md`, `vault/AGENTS.md`, and the repo skill in `.agents/skills/creator-system-vault/`
 
-### 3. Open Claude Code, point it at this folder, type `let's go`
+### 3. Open your agent at this folder and type `let's go`
 
-Claude reads `CLAUDE.md`, sees you're a fresh user, and walks you through:
+Claude reads `CLAUDE.md`; Codex reads `AGENTS.md`. Either agent sees you're a fresh user and walks you through:
 
 1. Personalizing the vault with your name + practice
 2. Dropping your first source into `vault/01_INBOX/To Process/`
@@ -47,7 +48,8 @@ Total: ~10 minutes to a working personal intelligence system you own.
 ```
 creator-system/                  ← you're here; this IS your vault
 ├── vault/                       ← 10-folder layered knowledge system
-│   ├── .claude/commands/        ← 14 AI skills
+│   ├── .claude/commands/        ← 14 Claude Code command specs
+│   ├── AGENTS.md                ← Codex vault-level operating instructions
 │   ├── 00_HOME/                 ← Navigation hubs and system state
 │   ├── 01_INBOX/                ← Drop new material here
 │   ├── 02_SOURCES/              ← Raw source material (immutable)
@@ -68,7 +70,9 @@ creator-system/                  ← you're here; this IS your vault
 │   └── granola-ingest/          ← Granola meetings → rolling source-note
 │
 ├── README.md                    ← You are here
+├── AGENTS.md                    ← Instructions for Codex
 ├── CLAUDE.md                    ← Instructions for Claude Code
+├── .agents/skills/              ← Codex repo-scoped skills
 ├── RECIPES.md                   ← 23 step-by-step things to try
 ├── Standard Operating Procedure.md   ← Daily use, weekly maintenance, manual fallbacks
 └── Data Sources to Gather.md    ← What raw materials to collect
@@ -123,6 +127,15 @@ You don't need to type the slash. Plain English works — *"build me a canon pag
 - **`Data Sources to Gather.md`** — What to collect and where each type goes
 - **`Standard Operating Procedure.md`** — Daily use, weekly maintenance, manual fallbacks
 - **`vault/10_META/AGENTS.md`** — The vault constitution: page types, naming conventions, source hierarchy, frontmatter schemas
+
+### Codex-specific docs
+
+- **`AGENTS.md`** — root-level Codex instructions for working from the repository root.
+- **`vault/AGENTS.md`** — vault-level Codex instructions for sessions opened directly inside `vault/`.
+- **`.agents/skills/creator-system-vault/SKILL.md`** — repo-scoped Codex skill that maps natural language requests and legacy `/command` names to the Creator System workflows.
+- **`docs/CODEX.md`** — setup, usage, and validation notes for running this kit with Codex.
+
+Run `bash scripts/check-codex-readiness.sh` after changing Codex instructions or skills.
 
 ---
 
