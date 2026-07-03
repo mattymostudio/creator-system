@@ -19,7 +19,8 @@ The format roughly follows [Keep a Changelog](https://keepachangelog.com). Versi
 
 - `/voice` (added 2026-05-24, contributed by Adam Mischke @vanities) merged to `main` and included in a packaged release for the first time — skill count is now 15.
 - README, CLAUDE.md, and tools/README.md updated for the new counts (15 skills, 7 tools, 24 recipes).
-- **Privacy pass on demo keyword lists** — `chatgpt-ingest/parse_conversations.py` domain keywords and skip patterns replaced with genuinely generic examples (the previous lists were tuned on a real archive); demo domain renamed `art_park` → `art_park` across chatgpt-ingest, press-ingest, and takeout-processor. Added a note that your own tuned keyword lists should be treated as private.
+- **Privacy pass on demo keyword lists** — `chatgpt-ingest/parse_conversations.py` domain keywords and skip patterns replaced with genuinely generic examples (the previous lists were tuned on a real archive); demo domain renamed to `art_park` across chatgpt-ingest, press-ingest, and takeout-processor. Added a note that your own tuned keyword lists should be treated as private.
+- **Semantic block list moved out of the shipped scripts** — `check-release.sh` and `prepare-repo.sh` now load their private-term patterns from a gitignored `scripts/blocklist.local.txt` (documented placeholder format ships as `scripts/blocklist.example.txt`), plus generic always-on built-ins (real personal emails, absolute home paths). A committed block list is a map of exactly what you don't want public.
 - `scripts/package-release.sh` now stages release zips from `git archive` (tracked files only) and refuses to package with uncommitted changes in shipped paths — untracked working-tree files can no longer slip into a release.
 - `photo-processor/scripts/backfill_vault.py`, `folder_watcher.py`, `obsidian_builder.py` — documented in the tools README and shipped in earlier zips, but never committed — are now tracked.
 

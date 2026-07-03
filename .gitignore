@@ -18,6 +18,10 @@ _archive/
 _build/
 _build_tools/
 
+# Private semantic block list — the block list itself is a map of private
+# terms and must never ship. See scripts/blocklist.example.txt for the format.
+scripts/blocklist.local.txt
+
 # Internal recap notes for maintainers
 **/.claude/RECAP.md
 **/.claude/settings.local.json
