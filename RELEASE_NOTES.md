@@ -1,90 +1,59 @@
-# Creator System v2026-05-01
+# Creator System v2026-07-03
 
-> **Initial public release.** Personal Intelligence System for creative professionals — open-source, MIT-licensed, runs locally on Obsidian + Claude Code. Built by [Matty Mo Studio](https://themostfamousartist.com).
+> **Personal Intelligence System for creative professionals** — open-source, MIT-licensed, runs locally on Obsidian + Claude Code or Codex. Built by [Matty Mo Studio](https://themostfamousartist.com).
 
-A structured, AI-augmented knowledge system for creators with multi-domain practices — artists, designers, musicians, filmmakers, writers, builders, anyone with a scattered archive worth synthesizing.
-
-This release is the version distributed to Cohort 01 of the Creator System cohort program. Early — actively used, actively shaped by friction logs from the cohort.
+Second release. Three headline additions since v2026-05-01: a community-contributed `/voice` skill generator, a full Codex compatibility layer, and a new curation tool for picking canonical work images. Skill count 14 → 15, tool count 6 → 7, recipes 23 → 24.
 
 ---
 
-## Why this exists
+## What's new
 
-Most AI tools wrap a chatbot around a prompt. This wraps a chatbot around your archive.
+### `/voice` — personal writing-voice skill generator
 
-The vault is structured (sources → source notes → canon → outputs) and trust-aware (journals win for emotional truth; business docs for what actually happened; press for what others *think* happened). Skills compose across the layers to produce outputs that sound like *you* because they *are* you — synthesized from your own material, not the average of the internet.
+Contributed by **Adam Mischke ([@vanities](https://github.com/vanities))** — the first outside contribution to the kit.
+
+Generates a `{slug}-voice` skill from the vault owner's own first-person sources in `02_SOURCES/`:
+
+- Inventories your authored writing and separates it from press/summaries
+- Detects surfaces (essay, social, transcript…) and proposes voice modes — with an approval gate before generating
+- Measures a quantitative fingerprint (sentence length, signature punctuation, paragraph rhythm) — corrects folk beliefs about your own style with data
+- Extracts vocabulary signatures, sentence patterns, verbatim calibration samples, and anti-sample pairs (generic-AI ❌ vs you ✅)
+- Emits a `SKILL.md` from the new `Template - Voice Skill.md`, symlinked to `~/.claude/skills/` for global use
+- Refresh mode re-runs only over new material and preserves hand-edits
+
+### Codex compatibility
+
+The kit now runs on OpenAI Codex as well as Claude Code:
+
+- `AGENTS.md` (repo root) + `vault/AGENTS.md` — Codex operating instructions mirroring `CLAUDE.md`
+- `.agents/skills/creator-system-vault/SKILL.md` — repo-scoped Codex skill mapping natural language and `/command` names to vault workflows
+- `docs/CODEX.md` — setup, usage, and validation notes
+- `scripts/check-codex-readiness.sh` + CI workflow keeping the layer consistent
+
+### `work-hero-picker` — one canonical image per work (`tools/`)
+
+The seventh tool, and the first *curation* tool: when your archive keeps a folder per work with several photos of the same piece, it builds a self-contained HTML picker (candidates auto-ranked, likely hero first), you click through, and it applies your picks as `_hero/` symlinks — originals never moved. Downstream site builders and catalog generators can rely on `_hero/` holding exactly one image per work. Recipe 24 in `RECIPES.md`.
 
 ---
 
-## What's in this release
+## What's in the kit
 
-### Vault scaffolding (`vault/`)
+- **Vault scaffolding** — 10-folder layered structure (sources → source notes → canon → outputs), hub pages, templates, and the vault constitution at `10_META/AGENTS.md`
+- **15 AI skills** (`vault/.claude/commands/`) — ingestion (`/ingest`, `/granola`), synthesis (`/diarize`, `/enrich`, `/emerge`, `/connect`), analysis (`/challenge`, `/drift`, `/council`, `/ideas`), maintenance (`/vault-lint`, `/improve`, `/recap`), research (`/autoresearch`), and now `/voice`
+- **7 tools** (`tools/`) — photo-processor, takeout-processor, chatgpt-ingest, facebook-ingest, press-ingest, granola-ingest, work-hero-picker
+- **Docs** — `README.md`, `RECIPES.md` (24 recipes), `Standard Operating Procedure.md`, `Data Sources to Gather.md`
 
-10-folder layered structure with hub pages, page templates, and the vault constitution (`10_META/AGENTS.md`):
-
-- `00_HOME/` · navigation hubs, log, open questions
-- `01_INBOX/` · drop zone for unprocessed material
-- `02_SOURCES/` · raw, immutable source material
-- `03_SOURCE_NOTES/` · processed extracts
-- `04_CANON/` · durable synthesized knowledge
-- `05_PROJECTS/` · execution tracking
-- `06_OUTPUTS/` · reusable deliverables
-- `08_RESEARCH/` · external-topic knowledge
-- `09_IDEAS/` · experimental concepts
-- `10_META/` · system rules + templates
-
-### 14 AI skills (`vault/.claude/commands/`)
-
-| Command | Function |
-|---|---|
-| `/ingest` | Process a raw source through the full vault pipeline |
-| `/diarize` | Build a comprehensive canon page from all sources about a subject |
-| `/enrich` | Fill out a thin canon page by finding all related sources |
-| `/vault-lint` | Run 10 structural checks and write a report |
-| `/improve` | Analyze patterns and propose system improvements |
-| `/recap` | Close a session with a dated entry in `00_HOME/Log.md` |
-| `/autoresearch` | Autonomous external-topic research loop |
-| `/granola` | Synthesize Granola meeting pulls into the rolling archive |
-| `/emerge` | Surface ideas the vault implies but never stated |
-| `/challenge` | Pressure-test a belief against the vault's own evidence |
-| `/connect` | Find hidden bridges between two topics |
-| `/drift` | Compare stated priorities vs actual activity |
-| `/ideas` | Vault-wide brainstorm grounded in what the vault knows |
-| `/council` | 12 professional personas evaluate a project, idea, or deal |
-
-You don't need to type the slash — plain English works just as well.
-
-### 6 ingestion pipelines (`tools/`)
-
-Each one takes a messy export from a platform you already use and turns it into plain-text Markdown that lands in your vault.
-
-| Tool | Input | Output |
-|---|---|---|
-| `photo-processor` | iPhone photo dump | events · faces · locations |
-| `takeout-processor` | Google Takeout | contacts · timeline · relationships |
-| `chatgpt-ingest` | ChatGPT export | topic index |
-| `facebook-ingest` | Facebook archive | message threads + contacts |
-| `press-ingest` | Press URLs | cleaned local article archive |
-| `granola-ingest` | Granola meetings | rolling source-note (pairs with `/granola` skill) |
-
-### Documentation
-
-- `README.md` · front-door overview, quick start
-- `CLAUDE.md` · instructions for Claude Code (read on every fresh session)
-- `RECIPES.md` · 23 step-by-step recipes (input → tool → skill → output) by data type
-- `Standard Operating Procedure.md` · daily use, weekly maintenance, manual fallbacks
-- `Data Sources to Gather.md` · what raw materials to collect and where each type goes
-- `vault/10_META/AGENTS.md` · the vault constitution
+Full history in [`CHANGELOG.md`](CHANGELOG.md).
 
 ---
 
 ## How to use it
 
 1. **Get the kit** — clone via git or Download ZIP, unzip wherever you keep projects.
-2. **Install** [Obsidian](https://obsidian.md) and [Claude Code](https://claude.ai/claude-code).
-3. **Open Claude Code, point it at this folder, type `let's go`** — onboarding starts automatically.
+2. **Install** [Obsidian](https://obsidian.md) and an AI coding agent — Claude Code or Codex.
+3. **Open your agent at this folder and type `let's go`** — onboarding starts automatically.
 
-Total: ~10 minutes to a working personal intelligence system you own. Your data stays on your laptop in plain text. The kit is yours to keep, modify, fork — MIT license.
+Total: ~10 minutes to a working personal intelligence system you own. Your data stays on your laptop in plain text.
 
 ---
 
