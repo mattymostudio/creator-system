@@ -47,6 +47,7 @@ Read `10_META/AGENTS.md` for the full vault constitution: page types, frontmatte
 - `/recap` — Close out a session: write a dated recap to `00_HOME/Log.md` (what changed / what's next / loose ends)
 - `/autoresearch` — Autonomous research loop on an external topic; builds structured wiki pages in `08_RESEARCH/` with configurable depth, sources, and stop conditions
 - `/granola` — Synthesize Granola meeting pulls into a rolling thematic archive in `03_SOURCE_NOTES/` (requires the companion Ingestion Tools pack)
+- `/voice` — Build (or refresh) a personal writing-voice skill from the creator's own first-person sources in `02_SOURCES/`; emits a `{slug}-voice/SKILL.md` symlinked to `~/.claude/skills/` for global use
 
 ## Operating posture
 

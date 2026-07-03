@@ -4,6 +4,17 @@ The format roughly follows [Keep a Changelog](https://keepachangelog.com). Versi
 
 ---
 
+## [2026-05-24] — `/voice` skill generator
+
+### Added
+
+- `/voice` command (`vault/.claude/commands/voice.md`) — generates a creator-specific writing-voice skill from the vault owner's own first-person sources in `02_SOURCES/`. Inventories surfaces, measures a quantitative fingerprint, extracts vocabulary + sentence patterns + verbatim calibration samples, generates anti-sample pairs, and emits `{slug}-voice/SKILL.md` symlinked to `~/.claude/skills/` for global invocation. Includes a refresh mode for incremental updates.
+- `vault/10_META/Templates/Template - Voice Skill.md` — the schema `/voice` fills.
+
+Contributed by Adam Mischke (@vanities).
+
+---
+
 ## [2026-05-01] — Initial public release
 
 First version distributed to Cohort 01 of the Creator System cohort program.
