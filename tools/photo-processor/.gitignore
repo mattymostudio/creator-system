@@ -7,11 +7,6 @@ new/*
 Organized/
 ihpone dump*/
 
-# Vault-integration scripts (personal workflow)
-**/backfill_vault.py
-**/obsidian_builder.py
-**/folder_watcher.py
-
 # Claude Code config
 .claude/
 

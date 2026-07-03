@@ -35,27 +35,31 @@ echo
 rm -rf "$STAGE"
 mkdir -p "$STAGE/creator-system-vault" "$STAGE/creator-system-tools" "$ARTIFACTS"
 
-# 3. Stage the vault kit
-echo "==> Staging vault kit"
-cp -R "$KIT_DIR/vault" "$STAGE/creator-system-vault/"
-cp "$KIT_DIR/README.md" \
-   "$KIT_DIR/CONTRIBUTING.md" \
-   "$KIT_DIR/LICENSE" \
-   "$KIT_DIR/RECIPES.md" \
-   "$KIT_DIR/RELEASE_NOTES.md" \
-   "$KIT_DIR/CHANGELOG.md" \
-   "$KIT_DIR/Standard Operating Procedure.md" \
-   "$KIT_DIR/Data Sources to Gather.md" \
-   "$KIT_DIR/.gitignore" \
-   "$STAGE/creator-system-vault/" 2>/dev/null || true
-cp -R "$KIT_DIR/.github" "$STAGE/creator-system-vault/" 2>/dev/null || true
+# 3. Stage the vault kit — ONLY git-tracked files. Copying from the working
+# tree can silently ship untracked local files; `git archive` cannot.
+echo "==> Staging vault kit (tracked files only)"
+git -C "$KIT_DIR" archive HEAD -- vault \
+  | tar -x -C "$STAGE/creator-system-vault"
+git -C "$KIT_DIR" archive HEAD -- \
+    README.md LICENSE RECIPES.md RELEASE_NOTES.md CHANGELOG.md \
+    "Standard Operating Procedure.md" "Data Sources to Gather.md" \
+    .gitignore .github \
+  | tar -x -C "$STAGE/creator-system-vault"
 
-# 4. Stage the tools pack
-echo "==> Staging tools pack"
-cp -R "$KIT_DIR/tools/." "$STAGE/creator-system-tools/"
-cp "$KIT_DIR/LICENSE" \
-   "$KIT_DIR/RELEASE_NOTES.md" \
-   "$STAGE/creator-system-tools/" 2>/dev/null || true
+# 4. Stage the tools pack — same rule: tracked files only
+echo "==> Staging tools pack (tracked files only)"
+git -C "$KIT_DIR" archive HEAD -- tools \
+  | tar -x -C "$STAGE/creator-system-tools" --strip-components 1
+git -C "$KIT_DIR" archive HEAD -- LICENSE RELEASE_NOTES.md \
+  | tar -x -C "$STAGE/creator-system-tools"
+
+# Refuse to package if HEAD doesn't match the working tree for shipped paths —
+# otherwise the zips won't contain what you're looking at.
+if ! git -C "$KIT_DIR" diff --quiet HEAD -- vault tools README.md RECIPES.md \
+     RELEASE_NOTES.md CHANGELOG.md LICENSE .gitignore .github; then
+  echo "❌ Uncommitted changes in shipped paths — commit first, then package." >&2
+  exit 1
+fi
 
 # 5. Strip noise from staging
 find "$STAGE" -name '.DS_Store' -delete

@@ -5,37 +5,82 @@
     "update_time": 1704068000,
     "current_node": "msg4",
     "mapping": {
-      "root": {"id": "root", "parent": null, "children": ["msg1"], "message": null},
+      "root": {
+        "id": "root",
+        "parent": null,
+        "children": [
+          "msg1"
+        ],
+        "message": null
+      },
       "msg1": {
-        "id": "msg1", "parent": "root", "children": ["msg2"],
+        "id": "msg1",
+        "parent": "root",
+        "children": [
+          "msg2"
+        ],
         "message": {
-          "author": {"role": "user"},
+          "author": {
+            "role": "user"
+          },
           "create_time": 1704067200,
-          "content": {"parts": ["Help me draft an artist statement for a 2024 solo show. My practice explores public-art interventions and sculpture."]}
+          "content": {
+            "parts": [
+              "Help me draft an artist statement for a 2024 solo show. My practice explores public-art interventions and sculpture."
+            ]
+          }
         }
       },
       "msg2": {
-        "id": "msg2", "parent": "msg1", "children": ["msg3"],
+        "id": "msg2",
+        "parent": "msg1",
+        "children": [
+          "msg3"
+        ],
         "message": {
-          "author": {"role": "assistant"},
+          "author": {
+            "role": "assistant"
+          },
           "create_time": 1704067300,
-          "content": {"parts": ["Here's a starting draft. Working across photography, sculpture, and site-specific installation, your practice asks how public art reshapes everyday urban encounters..."]}
+          "content": {
+            "parts": [
+              "Here's a starting draft. Working across photography, sculpture, and site-specific installation, your practice asks how public art reshapes everyday urban encounters..."
+            ]
+          }
         }
       },
       "msg3": {
-        "id": "msg3", "parent": "msg2", "children": ["msg4"],
+        "id": "msg3",
+        "parent": "msg2",
+        "children": [
+          "msg4"
+        ],
         "message": {
-          "author": {"role": "user"},
+          "author": {
+            "role": "user"
+          },
           "create_time": 1704067500,
-          "content": {"parts": ["Make it shorter — two paragraphs max, and lean into the word 'intervention'."]}
+          "content": {
+            "parts": [
+              "Make it shorter — two paragraphs max, and lean into the word 'intervention'."
+            ]
+          }
         }
       },
       "msg4": {
-        "id": "msg4", "parent": "msg3", "children": [],
+        "id": "msg4",
+        "parent": "msg3",
+        "children": [],
         "message": {
-          "author": {"role": "assistant"},
+          "author": {
+            "role": "assistant"
+          },
           "create_time": 1704067700,
-          "content": {"parts": ["Intervention is the verb at the center of my practice. I put sculpture and image where people do not expect it — on billboards, in storefronts, at the edge of a city block — and I watch what happens when the public encounters it mid-routine.\n\nThe work sits between gallery and street, asking whether art belongs to institutions or to the cities that host it."]}
+          "content": {
+            "parts": [
+              "Intervention is the verb at the center of my practice. I put sculpture and image where people do not expect it — on billboards, in storefronts, at the edge of a city block — and I watch what happens when the public encounters it mid-routine.\n\nThe work sits between gallery and street, asking whether art belongs to institutions or to the cities that host it."
+            ]
+          }
         }
       }
     }
@@ -46,37 +91,82 @@
     "update_time": 1706746400,
     "current_node": "m4",
     "mapping": {
-      "root": {"id": "root", "parent": null, "children": ["m1"], "message": null},
+      "root": {
+        "id": "root",
+        "parent": null,
+        "children": [
+          "m1"
+        ],
+        "message": null
+      },
       "m1": {
-        "id": "m1", "parent": "root", "children": ["m2"],
+        "id": "m1",
+        "parent": "root",
+        "children": [
+          "m2"
+        ],
         "message": {
-          "author": {"role": "user"},
+          "author": {
+            "role": "user"
+          },
           "create_time": 1706745600,
-          "content": {"parts": ["What's a typical permit timeline for an ADU in California?"]}
+          "content": {
+            "parts": [
+              "What's a typical permit timeline for an ADU in California?"
+            ]
+          }
         }
       },
       "m2": {
-        "id": "m2", "parent": "m1", "children": ["m3"],
+        "id": "m2",
+        "parent": "m1",
+        "children": [
+          "m3"
+        ],
         "message": {
-          "author": {"role": "assistant"},
+          "author": {
+            "role": "assistant"
+          },
           "create_time": 1706745800,
-          "content": {"parts": ["ADU permit timelines in California vary by jurisdiction but generally take 60 to 120 days for ministerial review, followed by a construction loan draw schedule that aligns with inspections."]}
+          "content": {
+            "parts": [
+              "ADU permit timelines in California vary by jurisdiction but generally take 60 to 120 days for ministerial review, followed by a construction loan draw schedule that aligns with inspections."
+            ]
+          }
         }
       },
       "m3": {
-        "id": "m3", "parent": "m2", "children": ["m4"],
+        "id": "m3",
+        "parent": "m2",
+        "children": [
+          "m4"
+        ],
         "message": {
-          "author": {"role": "user"},
+          "author": {
+            "role": "user"
+          },
           "create_time": 1706746000,
-          "content": {"parts": ["What about mortgage / construction loan structure for someone building on their own land?"]}
+          "content": {
+            "parts": [
+              "What about mortgage / construction loan structure for someone building on their own land?"
+            ]
+          }
         }
       },
       "m4": {
-        "id": "m4", "parent": "m3", "children": [],
+        "id": "m4",
+        "parent": "m3",
+        "children": [],
         "message": {
-          "author": {"role": "assistant"},
+          "author": {
+            "role": "assistant"
+          },
           "create_time": 1706746200,
-          "content": {"parts": ["Construction-to-permanent loans are the common structure. The lender disburses in stages tied to inspection milestones (foundation, framing, final), then converts the total to a permanent mortgage once occupancy is signed off."]}
+          "content": {
+            "parts": [
+              "Construction-to-permanent loans are the common structure. The lender disburses in stages tied to inspection milestones (foundation, framing, final), then converts the total to a permanent mortgage once occupancy is signed off."
+            ]
+          }
         }
       }
     }
@@ -87,37 +177,82 @@
     "update_time": 1712016800,
     "current_node": "a4",
     "mapping": {
-      "root": {"id": "root", "parent": null, "children": ["a1"], "message": null},
+      "root": {
+        "id": "root",
+        "parent": null,
+        "children": [
+          "a1"
+        ],
+        "message": null
+      },
       "a1": {
-        "id": "a1", "parent": "root", "children": ["a2"],
+        "id": "a1",
+        "parent": "root",
+        "children": [
+          "a2"
+        ],
         "message": {
-          "author": {"role": "user"},
+          "author": {
+            "role": "user"
+          },
           "create_time": 1712016000,
-          "content": {"parts": ["How should I think about rebalancing a diversified portfolio quarterly?"]}
+          "content": {
+            "parts": [
+              "How should I think about rebalancing a diversified portfolio quarterly?"
+            ]
+          }
         }
       },
       "a2": {
-        "id": "a2", "parent": "a1", "children": ["a3"],
+        "id": "a2",
+        "parent": "a1",
+        "children": [
+          "a3"
+        ],
         "message": {
-          "author": {"role": "assistant"},
+          "author": {
+            "role": "assistant"
+          },
           "create_time": 1712016200,
-          "content": {"parts": ["Quarterly rebalancing has two common rules: threshold-based (rebalance when an allocation drifts 5 percent from target) and calendar-based (rebalance on a fixed date regardless of drift). Threshold-based tends to outperform in volatile markets."]}
+          "content": {
+            "parts": [
+              "Quarterly rebalancing has two common rules: threshold-based (rebalance when an allocation drifts 5 percent from target) and calendar-based (rebalance on a fixed date regardless of drift). Threshold-based tends to outperform in volatile markets."
+            ]
+          }
         }
       },
       "a3": {
-        "id": "a3", "parent": "a2", "children": ["a4"],
+        "id": "a3",
+        "parent": "a2",
+        "children": [
+          "a4"
+        ],
         "message": {
-          "author": {"role": "user"},
+          "author": {
+            "role": "user"
+          },
           "create_time": 1712016400,
-          "content": {"parts": ["What about tax-loss harvesting — when in the cycle is best?"]}
+          "content": {
+            "parts": [
+              "What about tax-loss harvesting — when in the cycle is best?"
+            ]
+          }
         }
       },
       "a4": {
-        "id": "a4", "parent": "a3", "children": [],
+        "id": "a4",
+        "parent": "a3",
+        "children": [],
         "message": {
-          "author": {"role": "assistant"},
+          "author": {
+            "role": "assistant"
+          },
           "create_time": 1712016600,
-          "content": {"parts": ["Late November through mid-December is the conventional window. Harvest losses before year-end, mind the wash sale rule (30 days), and replace with a similar-but-not-identical ETF to keep your exposure."]}
+          "content": {
+            "parts": [
+              "Late November through mid-December is the conventional window. Harvest losses before year-end, mind the wash sale rule (30 days), and replace with a similar-but-not-identical ETF to keep your exposure."
+            ]
+          }
         }
       }
     }
@@ -128,37 +263,82 @@
     "update_time": 1714608800,
     "current_node": "x4",
     "mapping": {
-      "root": {"id": "root", "parent": null, "children": ["x1"], "message": null},
+      "root": {
+        "id": "root",
+        "parent": null,
+        "children": [
+          "x1"
+        ],
+        "message": null
+      },
       "x1": {
-        "id": "x1", "parent": "root", "children": ["x2"],
+        "id": "x1",
+        "parent": "root",
+        "children": [
+          "x2"
+        ],
         "message": {
-          "author": {"role": "user"},
+          "author": {
+            "role": "user"
+          },
           "create_time": 1714608000,
-          "content": {"parts": ["Help me outline a memoir chapter about how I first got into public art."]}
+          "content": {
+            "parts": [
+              "Help me outline a memoir chapter about how I first got into public art."
+            ]
+          }
         }
       },
       "x2": {
-        "id": "x2", "parent": "x1", "children": ["x3"],
+        "id": "x2",
+        "parent": "x1",
+        "children": [
+          "x3"
+        ],
         "message": {
-          "author": {"role": "assistant"},
+          "author": {
+            "role": "assistant"
+          },
           "create_time": 1714608200,
-          "content": {"parts": ["Try a three-act structure: (1) the moment of contact — the first work you made or saw that broke the gallery frame, (2) the rejection or detour that redirected you, (3) the decision that committed you to the path."]}
+          "content": {
+            "parts": [
+              "Try a three-act structure: (1) the moment of contact — the first work you made or saw that broke the gallery frame, (2) the rejection or detour that redirected you, (3) the decision that committed you to the path."
+            ]
+          }
         }
       },
       "x3": {
-        "id": "x3", "parent": "x2", "children": ["x4"],
+        "id": "x3",
+        "parent": "x2",
+        "children": [
+          "x4"
+        ],
         "message": {
-          "author": {"role": "user"},
+          "author": {
+            "role": "user"
+          },
           "create_time": 1714608400,
-          "content": {"parts": ["I want to open with a scene rather than a statement. What's a good opening line?"]}
+          "content": {
+            "parts": [
+              "I want to open with a scene rather than a statement. What's a good opening line?"
+            ]
+          }
         }
       },
       "x4": {
-        "id": "x4", "parent": "x3", "children": [],
+        "id": "x4",
+        "parent": "x3",
+        "children": [],
         "message": {
-          "author": {"role": "assistant"},
+          "author": {
+            "role": "assistant"
+          },
           "create_time": 1714608600,
-          "content": {"parts": ["Try: 'The first piece I ever made in public was illegal, and it stayed up for six days before anyone noticed.' Lead with a concrete image, a specific number, and an implied stakes."]}
+          "content": {
+            "parts": [
+              "Try: 'The first piece I ever made in public was illegal, and it stayed up for six days before anyone noticed.' Lead with a concrete image, a specific number, and an implied stakes."
+            ]
+          }
         }
       }
     }
@@ -169,37 +349,168 @@
     "update_time": 1717200800,
     "current_node": "p4",
     "mapping": {
-      "root": {"id": "root", "parent": null, "children": ["p1"], "message": null},
+      "root": {
+        "id": "root",
+        "parent": null,
+        "children": [
+          "p1"
+        ],
+        "message": null
+      },
       "p1": {
-        "id": "p1", "parent": "root", "children": ["p2"],
+        "id": "p1",
+        "parent": "root",
+        "children": [
+          "p2"
+        ],
         "message": {
-          "author": {"role": "user"},
+          "author": {
+            "role": "user"
+          },
           "create_time": 1717200000,
-          "content": {"parts": ["Give me a simple weeknight roast chicken recipe."]}
+          "content": {
+            "parts": [
+              "Give me a simple weeknight roast chicken recipe."
+            ]
+          }
         }
       },
       "p2": {
-        "id": "p2", "parent": "p1", "children": ["p3"],
+        "id": "p2",
+        "parent": "p1",
+        "children": [
+          "p3"
+        ],
         "message": {
-          "author": {"role": "assistant"},
+          "author": {
+            "role": "assistant"
+          },
           "create_time": 1717200200,
-          "content": {"parts": ["Pat a 4-pound chicken dry. Salt generously. 425 F, 55-65 minutes breast-up until 165 F internal. Rest 10 min. That's it."]}
+          "content": {
+            "parts": [
+              "Pat a 4-pound chicken dry. Salt generously. 425 F, 55-65 minutes breast-up until 165 F internal. Rest 10 min. That's it."
+            ]
+          }
         }
       },
       "p3": {
-        "id": "p3", "parent": "p2", "children": ["p4"],
+        "id": "p3",
+        "parent": "p2",
+        "children": [
+          "p4"
+        ],
         "message": {
-          "author": {"role": "user"},
+          "author": {
+            "role": "user"
+          },
           "create_time": 1717200400,
-          "content": {"parts": ["What's a good side — something I don't have to think about?"]}
+          "content": {
+            "parts": [
+              "What's a good side — something I don't have to think about?"
+            ]
+          }
         }
       },
       "p4": {
-        "id": "p4", "parent": "p3", "children": [],
+        "id": "p4",
+        "parent": "p3",
+        "children": [],
         "message": {
-          "author": {"role": "assistant"},
+          "author": {
+            "role": "assistant"
+          },
           "create_time": 1717200600,
-          "content": {"parts": ["Sheet-pan potatoes and onions. Toss halved baby potatoes and quartered onions in olive oil, salt, and rosemary. Put them on the rack under the chicken for the last 40 minutes. The fat drips onto the potatoes."]}
+          "content": {
+            "parts": [
+              "Sheet-pan potatoes and onions. Toss halved baby potatoes and quartered onions in olive oil, salt, and rosemary. Put them on the rack under the chicken for the last 40 minutes. The fat drips onto the potatoes."
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "title": "Art park master plan — sculpture trail",
+    "create_time": 1706745600,
+    "update_time": 1706746600,
+    "current_node": "msg4",
+    "mapping": {
+      "root": {
+        "id": "root",
+        "parent": null,
+        "children": [
+          "msg1"
+        ],
+        "message": null
+      },
+      "msg1": {
+        "id": "msg1",
+        "parent": "root",
+        "children": [
+          "msg2"
+        ],
+        "message": {
+          "author": {
+            "role": "user"
+          },
+          "create_time": 1706745600,
+          "content": {
+            "parts": [
+              "Help me outline a master plan for a small-town art park: a sculpture trail, a visitor center, and a seasonal mural festival."
+            ]
+          }
+        }
+      },
+      "msg2": {
+        "id": "msg2",
+        "parent": "msg1",
+        "children": [
+          "msg3"
+        ],
+        "message": {
+          "author": {
+            "role": "assistant"
+          },
+          "create_time": 1706745700,
+          "content": {
+            "parts": [
+              "Here's a phased outline: Phase 1 — sculpture trail with 8 anchor works; Phase 2 — visitor center with rotating exhibits; Phase 3 — annual mural festival to drive repeat visits."
+            ]
+          }
+        }
+      },
+      "msg3": {
+        "id": "msg3",
+        "parent": "msg2",
+        "children": [
+          "msg4"
+        ],
+        "message": {
+          "author": {
+            "role": "user"
+          },
+          "create_time": 1706745900,
+          "content": {
+            "parts": [
+              "What would a realistic year-one budget look like for Phase 1?"
+            ]
+          }
+        }
+      },
+      "msg4": {
+        "id": "msg4",
+        "parent": "msg3",
+        "children": [],
+        "message": {
+          "author": {
+            "role": "assistant"
+          },
+          "create_time": 1706746000,
+          "content": {
+            "parts": [
+              "A lean Phase 1 budget typically covers site prep, artist commissions, signage, insurance, and a small contingency — sized to local costs and grant availability."
+            ]
+          }
         }
       }
     }
