@@ -4,6 +4,24 @@ The format roughly follows [Keep a Changelog](https://keepachangelog.com). Versi
 
 ---
 
+## [2026-07-03] — Codex support, work-hero-picker, `/voice` lands on main
+
+### Added
+
+- **Codex compatibility layer** — the kit now runs on OpenAI Codex as well as Claude Code:
+  - `AGENTS.md` (repo root) and `vault/AGENTS.md` — Codex operating instructions mirroring `CLAUDE.md`
+  - `.agents/skills/creator-system-vault/SKILL.md` — repo-scoped Codex skill mapping natural-language requests and `/command` names to the vault workflows
+  - `docs/CODEX.md` — setup, usage, and validation notes
+  - `scripts/check-codex-readiness.sh` + `.github/workflows/codex-readiness.yml` — CI check that the Codex layer stays consistent
+- **`tools/work-hero-picker/`** — curation tool: generates a self-contained HTML picker for choosing one canonical "hero" image per work folder, with heuristic auto-ranking of candidates; applies selections as `_hero/` symlinks (originals never moved). Recipe 24 in `RECIPES.md`.
+
+### Changed
+
+- `/voice` (added 2026-05-24, contributed by Adam Mischke @vanities) merged to `main` and included in a packaged release for the first time — skill count is now 15.
+- README, CLAUDE.md, and tools/README.md updated for the new counts (15 skills, 7 tools, 24 recipes).
+
+---
+
 ## [2026-05-24] — `/voice` skill generator
 
 ### Added

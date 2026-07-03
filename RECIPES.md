@@ -550,6 +550,29 @@ Recipes whose end product is something you can ship publicly.
 
 ---
 
+## Your work archive (images)
+
+### Recipe 24 — One hero image per work
+
+**Goal:** A single canonical display image chosen for every work in your archive — ready for a website, catalog, or sales sheet.
+
+| | |
+|---|---|
+| Input | An archive folder per work, each holding several photos of the same piece |
+| Tool | `work-hero-picker` |
+| Skill | — |
+| Time | 15 min setup + however long the clicking takes |
+
+**Steps:**
+1. `cd tools/work-hero-picker && python3 build_picker.py --works-root path/to/archive` — generates a self-contained HTML picker with candidates auto-ranked (likely hero first).
+2. Serve it: `cd path/to/archive && python3 -m http.server 8765`, open `http://localhost:8765/hero-picker.html`.
+3. Click one image per work (or skip). Selections persist as you go. Click **Export selections** when done.
+4. `python3 apply_selections.py ~/Downloads/hero-selections.json --web-root path/to/archive`.
+
+**What you get:** A `_hero/` subfolder inside every work with a symlink to your pick — originals untouched. Downstream tools (Recipe 21's site, a catalog generator, an inventory export) can rely on `_hero/` holding exactly one image per work.
+
+---
+
 ## By goal (cross-reference)
 
 | If you want to … | Try recipe |
@@ -570,6 +593,7 @@ Recipes whose end product is something you can ship publicly.
 | Make your press archive permanent | 7, 8 |
 | Send a newsletter you don't have to write | 22 |
 | Draft a memo that's actually true | 23 |
+| Pick one display image per work | 24 |
 
 ---
 

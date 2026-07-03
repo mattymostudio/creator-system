@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Built by Matty Mo Studio](https://img.shields.io/badge/built%20by-Matty%20Mo%20Studio-ff3d8a.svg)](https://themostfamousartist.com)
 
-> **Personal Intelligence System for creative professionals.** Open-source, MIT-licensed, runs locally on Obsidian + Claude Code or Codex. Vault scaffolding + 14 AI skills + 6 ingestion tools that turn your scattered archive into a queryable second brain.
+> **Personal Intelligence System for creative professionals.** Open-source, MIT-licensed, runs locally on Obsidian + Claude Code or Codex. Vault scaffolding + 15 AI skills + 7 tools that turn your scattered archive into a queryable second brain.
 
 Not a notes app. A layered system that archives source material, builds structured knowledge, tracks projects, and generates outputs — with AI-powered skills that do the heavy synthesis.
 
@@ -48,7 +48,7 @@ Total: ~10 minutes to a working personal intelligence system you own.
 ```
 creator-system/                  ← you're here; this IS your vault
 ├── vault/                       ← 10-folder layered knowledge system
-│   ├── .claude/commands/        ← 14 Claude Code command specs
+│   ├── .claude/commands/        ← 15 Claude Code command specs
 │   ├── AGENTS.md                ← Codex vault-level operating instructions
 │   ├── 00_HOME/                 ← Navigation hubs and system state
 │   ├── 01_INBOX/                ← Drop new material here
@@ -61,19 +61,20 @@ creator-system/                  ← you're here; this IS your vault
 │   ├── 09_IDEAS/                ← Ideas pipeline
 │   └── 10_META/                 ← System rules + templates
 │
-├── tools/                       ← 6 ingestion pipelines
+├── tools/                       ← 6 ingestion pipelines + 1 curation tool
 │   ├── photo-processor/         ← iPhone photos → events, faces, locations
 │   ├── takeout-processor/       ← Google Takeout → contacts, timeline
 │   ├── chatgpt-ingest/          ← ChatGPT export → topic index
 │   ├── facebook-ingest/         ← Facebook archive → message threads
 │   ├── press-ingest/            ← Press URLs → cleaned local archive
-│   └── granola-ingest/          ← Granola meetings → rolling source-note
+│   ├── granola-ingest/          ← Granola meetings → rolling source-note
+│   └── work-hero-picker/        ← Work folders → one canonical hero image each
 │
 ├── README.md                    ← You are here
 ├── AGENTS.md                    ← Instructions for Codex
 ├── CLAUDE.md                    ← Instructions for Claude Code
 ├── .agents/skills/              ← Codex repo-scoped skills
-├── RECIPES.md                   ← 23 step-by-step things to try
+├── RECIPES.md                   ← 24 step-by-step things to try
 ├── Standard Operating Procedure.md   ← Daily use, weekly maintenance, manual fallbacks
 └── Data Sources to Gather.md    ← What raw materials to collect
 ```
@@ -116,6 +117,7 @@ Not every source becomes a note. Not every note becomes canon. The system is sel
 | `/recap` | Close out a session with a dated "what changed / next / loose ends" entry |
 | `/autoresearch` | Autonomous research loop on an external topic |
 | `/granola` | Synthesize Granola meeting pulls (pairs with the `granola-ingest` tool) |
+| `/voice` | Build (or refresh) a personal writing-voice skill from your own first-person sources |
 
 You don't need to type the slash. Plain English works — *"build me a canon page about Devon"* runs the same path as `/diarize "Devon"`.
 
@@ -123,7 +125,7 @@ You don't need to type the slash. Plain English works — *"build me a canon pag
 
 ## Reference docs
 
-- **`RECIPES.md`** — 23 step-by-step recipes (input → tool → skill → output) by data type. Open this first.
+- **`RECIPES.md`** — 24 step-by-step recipes (input → tool → skill → output) by data type. Open this first.
 - **`Data Sources to Gather.md`** — What to collect and where each type goes
 - **`Standard Operating Procedure.md`** — Daily use, weekly maintenance, manual fallbacks
 - **`vault/10_META/AGENTS.md`** — The vault constitution: page types, naming conventions, source hierarchy, frontmatter schemas

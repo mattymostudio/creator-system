@@ -17,8 +17,9 @@ been swapped for generic placeholders — you'll replace those with your own.
 
 ## What this is
 
-Six small pipelines. Each one takes a messy export from a platform you
-already use and turns it into plain-text Markdown that Obsidian can read.
+Six small ingestion pipelines plus one curation tool. Each pipeline takes
+a messy export from a platform you already use and turns it into
+plain-text Markdown that Obsidian can read.
 
 ```
 Your raw export              This kit                    Your vault
@@ -29,6 +30,7 @@ ChatGPT export        →      chatgpt-ingest       →      topic index
 Facebook archive      →      facebook-ingest      →      messages + contacts
 Your press links      →      press-ingest         →      clean article archive
 Granola meetings      →      granola-ingest       →      meeting notes
+Work-photo folders    →      work-hero-picker     →      one hero image per work
 ```
 
 Once the vault is populated, Claude Code (running in the vault folder)
@@ -170,6 +172,7 @@ script, look at the output.
 │   │   ├── facebook-ingest/         ← FB HTML archive               │
 │   │   ├── press-ingest/            ← Press articles (URL list)     │
 │   │   ├── granola-ingest/          ← Granola meeting notes         │
+│   │   ├── work-hero-picker/        ← hero image per work folder    │
 │   │   └── _shared/                 ← small cross-tool helpers      │
 │   └── README.md                    ← you are here                  │
 │                                                                    │
@@ -184,13 +187,13 @@ script, look at the output.
 └────────────────────────────────────────────────────────────────────┘
 ```
 
-Each tool is **independent**. You can run one or all six. The order
+Each tool is **independent**. You can run one or all seven. The order
 doesn't matter much — they write to different parts of the vault and
 don't depend on each other.
 
 ---
 
-## The six tools
+## The seven tools
 
 ### 1. `photo-processor/` — iPhone photo dumps
 
@@ -254,6 +257,23 @@ synthesizes them into cleaned-up notes.
 
 Requires **Granola** + the **Granola MCP server** hooked into Claude
 Code. See `granola-ingest/README.md` for details.
+
+### 7. `work-hero-picker/` — one canonical image per work
+
+The curation tool of the set — it works on folders you already have
+rather than a platform export. When your archive keeps one folder per
+work (painting, sculpture, project) with several photos of the same
+piece, it generates a self-contained HTML picker: click through choosing
+one standardized "hero" image per work, export your selections, then
+apply them as `_hero/` symlinks inside each folder. Candidates are
+auto-ranked by filename and size heuristics so the likely hero sorts
+first. Originals are never moved. Downstream tools (a site builder, a
+catalog generator, a sales sheet) can rely on `_hero/` holding exactly
+one image.
+
+**Quick start:** `python3 build_picker.py --works-root path/to/archive`,
+serve the HTML with `python3 -m http.server`, pick, export, then
+`python3 apply_selections.py ~/Downloads/hero-selections.json --web-root path/to/archive`.
 
 ---
 

@@ -12,7 +12,7 @@ A working **Personal Intelligence System** (PIS) by Matty Mo Studio. The user ju
 
 **Layout:**
 - `vault/` — the layered knowledge system (sources → source notes → canon → outputs). This is where their archive lives.
-- `tools/` — six ingestion pipelines (photos, Google Takeout, ChatGPT export, Facebook archive, press URLs, Granola meetings).
+- `tools/` — six ingestion pipelines (photos, Google Takeout, ChatGPT export, Facebook archive, press URLs, Granola meetings) plus a curation tool (`work-hero-picker`).
 - Top-level docs — `README.md`, `RECIPES.md`, `Standard Operating Procedure.md`, `Data Sources to Gather.md`. Reference material.
 
 ---
@@ -69,7 +69,7 @@ Tell them: this gives them an undo button for everything they do this week.
 Summarize what just happened (in 2 lines). Suggest 2–3 concrete next moves:
 - "Drop 3 more sources this weekend — try a press piece, a meeting transcript, and a journal entry."
 - "Try `/diarize` on another subject that came up multiple times."
-- "Open `RECIPES.md` for 23 step-by-step things to try."
+- "Open `RECIPES.md` for 24 step-by-step things to try."
 
 End with: *"You're set up. Ping the cohort WhatsApp if anything breaks."*
 
