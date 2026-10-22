@@ -28,16 +28,30 @@ jobs:
           echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  $archive" | sha256sum --check --strict
           mkdir -p "${RUNNER_TEMP}/gitleaks-bin"
           tar -xzf "$archive" -C "${RUNNER_TEMP}/gitleaks-bin" gitleaks
+          printf '[extend]\nuseDefault = true\n' > "${RUNNER_TEMP}/gitleaks-default.toml"
+          mkdir -p "${RUNNER_TEMP}/gitleaks-config"
+          : > "${RUNNER_TEMP}/gitleaks-config/.gitleaksignore"
       - name: Reject secrets introduced by this change
         shell: bash
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
         run: |
           set -euo pipefail
           if [[ "$BASE_SHA" =~ ^[0-9a-f]{40}$ && "$BASE_SHA" != 0000000000000000000000000000000000000000 ]]; then
             git cat-file -e "${BASE_SHA}^{commit}"
             range="${BASE_SHA}..HEAD"
+          elif git show-ref --verify --quiet "refs/remotes/origin/${DEFAULT_BRANCH}"; then
+            base="$(git merge-base HEAD "origin/${DEFAULT_BRANCH}")"
+            if [[ "$base" == "$(git rev-parse HEAD)" ]]; then
+              range="HEAD"
+            else
+              range="${base}..HEAD"
+            fi
           else
-            range="-1 HEAD"
+            range="HEAD"
           fi
-          "${RUNNER_TEMP}/gitleaks-bin/gitleaks" git --redact=100 --no-banner --log-opts="$range" .
+          "${RUNNER_TEMP}/gitleaks-bin/gitleaks" git --redact=100 --no-banner \
+            --config="${RUNNER_TEMP}/gitleaks-default.toml" \
+            --gitleaks-ignore-path="${RUNNER_TEMP}/gitleaks-config/.gitleaksignore" --ignore-gitleaks-allow \
+            --log-opts="$range" "$(git rev-parse --absolute-git-dir)"
